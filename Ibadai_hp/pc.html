@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- 表示領域を臨機応変に合わせる -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+    <title>授業教室にて</title>
+    <link rel="stylesheet" href="css/pc.css">
+    <!-- CDN経由でjQuery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- jsファイル読み込み -->
+    <script type="text/javascript" src="js/pc.js"></script>
+</head>
+<body>
+	<header>
+        <div class="f-container">
+            <div class="f-item fs-item"></div>
+            <div class="f-item fc-item">
+                <a href="https://www.ibaraki.ac.jp/">
+                    <h1>ようこそ茨大へ</h1>
+                </a>
+            </div>
+            <div class="f-item fs-item"></div>
+        </div>
+    </header>
+<div class="main"> <!-- 外枠 -->
+
+    <div class="imgTop">
+        <img src="image/pc.png">
+    </div>
+
+    <div class="voice">
+        <p>理学部の先輩が<br>
+           教室の説明をしてくれるようだ。</p>
+    </div>
+
+
+    <!-- 左からの吹き出し -->
+    <div class="kaiwa">
+        <figure class="kaiwa-img-left">
+            <img src="image/senior.png">
+            <figcaption class="kaiwa-img-description">
+                先輩
+            </figcaption>
+        </figure>
+
+        <div class="kaiwa-text-right">
+            <p class="kaiwa-text">
+                ここは情報の授業をする教室だよ。<br> 
+                １年生ではExcelやWord、２年生ではプログラミングの勉強をするよ。
+            </p>
+        </div>
+    </div>
+
+    <!-- 右からの吹き出し -->
+    <div class="kaiwa">
+        <figure class="kaiwa-img-right">
+            <img src="image/player.jpg">
+            <figcaption class="kaiwa-img-description">
+                薔薇垣大育
+            </figcaption>
+        </figure>
+
+        <div class="kaiwa-text-left">
+            <p class="kaiwa-text">
+                へぇ。プログラミングとかできるかな。
+            </p>
+        </div>
+    </div>
+    <!-- 左からの吹き出し -->
+    <div class="kaiwa">
+        <figure class="kaiwa-img-left">
+            <img src="image/senior.png">
+            <figcaption class="kaiwa-img-description">
+                先輩
+            </figcaption>
+        </figure>
+
+        <div class="kaiwa-text-right">
+            <p class="kaiwa-text">
+                ポケモンバトルのプログラムとか学べるから楽しいと思う！<br>
+                ピ、ピカ！！（ピカチュウのマネ）
+            </p>
+        </div>
+    </div>
+
+    <!-- 右からの吹き出し（モノマネ押したら消える） -->
+    <div class="kaiwa" id="commentClear">
+        <figure class="kaiwa-img-right">
+            <img src="image/player.jpg">
+            <figcaption class="kaiwa-img-description">
+                薔薇垣大育
+            </figcaption>
+        </figure>
+
+        <div class="kaiwa-text-left">
+            <p class="kaiwa-text">
+                <div>
+                    <a href="#comment" class="btn btnPc" onclick="clickpc()">自分もモノマネしてあげる</a>
+                </div>
+                <br>
+                <div>
+                    <a href="cafeteria.html" class="btn btnPc">無視して学食へ行く</a>
+                </div>
+            </p>
+        </div>
+    </div>
+
+<div id="comment"> <!-- 好感度コメント -->
+    <!-- 右からの吹き出し -->
+    <div class="kaiwa">
+        <figure class="kaiwa-img-right">
+            <img src="image/player.jpg">
+            <figcaption class="kaiwa-img-description">
+                薔薇垣大育
+            </figcaption>
+        </figure>
+
+        <div class="kaiwa-text-left">
+            <p class="kaiwa-text">
+                レジギ、ガガガガガガガ！！！
+            </p>
+        </div>
+    </div>
+
+    <!-- 左からの吹き出し -->
+    <div class="kaiwa">
+        <figure class="kaiwa-img-left">
+            <img src="image/senior.png">
+            <figcaption class="kaiwa-img-description">
+                先輩
+            </figcaption>
+        </figure>
+
+        <div class="kaiwa-text-right">
+            <p class="kaiwa-text">
+                君、面白いね！<br>
+                これからもよろしく！
+            </p>
+        </div>
+    </div>
+    <div class="voice">
+        <p>大学生活において先輩とは<br>
+           仲良くなっておくべきだな。<br><br>
+           お腹が空いたから<b>学食</b>へ行こう。</p>
+    </div>
+    <div>
+        <a href="cafeteria.html" class="btn btnPc btnPc-last">学食へ行く</a>
+    </div>
+
+</div>
+
+    <!-- SweetAlert読み込み（CDN） -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        document.getElementById("comment").style.display = "none"; // コメント隠しとく
+        document.getElementById("commentClear").style.display = "block"; // コメント表示しておく
+        function clickpc(){
+                const comment = document.getElementById("comment");
+                const commentClear = document.getElementById("commentClear");
+                    if(comment.style.display == "none"){
+                        comment.style.display = "block";
+                        swal({
+                            title:"友情ポイント1P ゲット！",
+                            text:"覚えておくと役に立つかも？",
+                            icon:"success", // successだとチェックマークになる                            
+                            button:"了解した",
+                        });
+                    }
+                    if(commentClear.style.display == "block"){
+                        commentClear.style.display = "none";
+                    }
+        };
+    </script> 
+
+    <br>
+
+</div>
+	<footer>
+        <div class="f-container">
+            <div class="f-item fs-item f-footer"></div>
+            <div class="f-item fc-item f-footer">
+                <a href="https://www.ibaraki.ac.jp/department/sci/index.html">
+                    <h1>茨城大学</h1>
+                    <h2>理学部　水戸キャンパス</h2>
+                    <p>〒310-8512　茨城県水戸市文京2-1-1</p>
+                </a>
+            </div>
+            <div class="f-item fs-item f-footer"></div>
+        </div>
+    </footer>
+</body>
+</html>
