@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ついに卒業？</title>
+    <!-- 表示領域を臨機応変に合わせる -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+    <link rel="stylesheet" href="css/end.css">
+    <!-- CDN経由でjQuery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- jsファイル読み込み -->
+    <script type="text/javascript" src="js/end.js"></script>
+</head>
+<body>
+    <header>
+        <div class="f-container">
+            <div class="f-item fs-item"></div>
+            <div class="f-item fc-item">
+                <a href="https://www.ibaraki.ac.jp/">
+                    <h1>ようこそ茨大へ</h1>
+                </a>
+            </div>
+            <div class="f-item fs-item"></div>
+        </div>
+    </header>
+<div class="main"> <!-- 外枠 -->
+    <!--
+    
+    -->
+
+    <!-- 決定押したら隠れる -->
+    <div id="commentClear">
+    <div class="voice">
+        <p>もう4年の3月か。<br>
+        大学生活もあっという間だったな。<br>
+        でも、楽しかった。<br><br>
+        そんなことより、俺は卒業できるのかな。<br>
+        </p>
+        <div class="motivate">
+            <label><b>今まで集めた友情ポイント</b>
+                <input id="friendPoint" type="text" size="11" maxlength="2" placeholder="数字を入力(半角)"><br>
+                <input type="button" value="決定" onclick="clickOk(),clickOk2()">
+            </label>
+        </div>
+    </div>
+        <p style="text-align: center;">※友情ポイントが初耳の場合「0」を入力</p>
+    </div>
+
+    <div id="gra" class="ribbon12-wrapper">
+        <h3 class="ribbon12">Error!</h3>
+        <p>再度入力してください。</p>
+    </div>
+
+    <div id="gra0" class="ribbon12-wrapper">
+        <h3 class="ribbon12">Sad...</h3>
+        <p>卒業できなかった。<br>
+            そして、誰もいなくなった。<br>
+        </p>
+    </div>
+
+    <div id="gra1" class="ribbon12-wrapper">
+        <h3 class="ribbon12">Pien...</h3>
+        <p>卒業できなかった。<br>
+            けど、大丈夫か！同じ留年仲間がいる！</p>
+    </div>
+
+    <div id="gra2" class="ribbon12-wrapper">
+        <h3 class="ribbon12">Oh my gosh!</h3>
+        <p>留年して9月の卒業になりそうだ。<br>
+            もう少しの辛抱かな。</p>
+    </div>
+
+    <div id="gra3">
+        <div class="top">
+            <img src="image/sakura.jpg">
+        </div>
+        <div class="ribbon12-wrapper">
+            <h3 class="ribbon12">Good!</h3>
+            <p>ついに卒業！ <br>
+                単位ギリギリだし、あんまり華やかな<br>
+                学生生活ではなかったけど、<br>
+                それもそれでよし！これからがある！</p>
+        </div>
+    </div>
+
+    <div id="gra4">
+        <div class="top">
+            <img src="image/sakura.jpg">
+        </div>
+        <div class="ribbon12-wrapper">
+            <h3 class="ribbon12">Excellent!</h3>
+            <p>ついに卒業！<br>
+                大学生活楽しかったな・・。<br>
+                社会人になっても頑張ろう！</p>
+        </div>
+    </div>
+
+    <div id="gra5">
+        <div class="top">
+            <img src="image/sakura.jpg">
+        </div>
+        <div class="ribbon12-wrapper">
+            <h3 class="ribbon12">Congratulations!</h3>
+            <p>ついに卒業だ！<br>
+                学生生活楽しかったし、結局論文も高く評価してもらったし、<br>
+                何も言うことなし！<br> 
+                これで社会人として頑張れる！</p>
+        </div>
+    </div>
+
+    <div id="gra6" class="ribbon12-wrapper">
+        <h3 class="ribbon12">You're a liar!</h3>
+        <p>嘘はよくない。</p>
+    </div>
+
+    <script>
+            document.getElementById("gra").style.display = "none"; // 隠しとく
+            document.getElementById("gra0").style.display = "none"; // 隠しとく
+            document.getElementById("gra1").style.display = "none"; // 隠しとく
+            document.getElementById("gra2").style.display = "none"; // 隠しとく
+            document.getElementById("gra3").style.display = "none"; // 隠しとく
+            document.getElementById("gra4").style.display = "none"; // 隠しとく
+            document.getElementById("gra5").style.display = "none"; // 隠しとく
+            document.getElementById("gra6").style.display = "none"; // 隠しとく
+
+            function clickOk(){
+                const gra = document.getElementById("gra");
+                const gra0 = document.getElementById("gra0");
+                const gra1 = document.getElementById("gra1");
+                const gra2 = document.getElementById("gra2");
+                const gra3 = document.getElementById("gra3");
+                const gra4 = document.getElementById("gra4");
+                const gra5 = document.getElementById("gra5");
+                const gra6 = document.getElementById("gra6");
+                const btnPc = document.getElementById("btnPc");
+                const repeat = document.getElementById("repeat");
+                const ibadai = document.getElementById("ibadai");
+                var fp = document.getElementById("friendPoint").value;
+                
+                switch(fp){
+                        case "":
+                            if(gra.style.display == "none"){
+                                $(gra).fadeIn(1500);
+                            }
+                            if(repeat.style.display == "none"){
+                                repeat.style.display = "block";
+                                repeat.style.display = "flex";
+                            }
+                            break;
+                        case "0":
+                            if(gra0.style.display == "none"){
+                                $(gra0).fadeIn(1500);
+                            }
+                            if(btnPc.style.display == "none"){
+                                btnPc.style.display = "block";
+                                btnPc.style.display = "flex";
+                            }
+                            break;
+                        case "1":
+                            if(gra1.style.display == "none"){
+                                $(gra1).fadeIn(1500);
+                            }
+                            if(btnPc.style.display == "none"){
+                                btnPc.style.display = "block";
+                                btnPc.style.display = "flex";
+                            }
+                            break;
+                        case "2":
+                            if(gra2.style.display == "none"){
+                                $(gra2).fadeIn(1500);
+                            }
+                            if(btnPc.style.display == "none"){
+                                btnPc.style.display = "block";
+                                btnPc.style.display = "flex";
+                            }
+                            break;
+                        case "3":
+                            if(gra3.style.display == "none"){
+                                $(gra3).fadeIn(1500);
+                            }
+                            if(ibadai.style.display == "none"){
+                                ibadai.style.display = "block";
+                                ibadai.style.display = "flex";
+                            }
+                            break;
+                        case "4":
+                            if(gra4.style.display == "none"){
+                                $(gra4).fadeIn(1500);
+                            }
+                            if(ibadai.style.display == "none"){
+                                ibadai.style.display = "block";
+                                ibadai.style.display = "flex";
+                            }
+                            break;
+                        case "5":
+                            if(gra5.style.display == "none"){
+                                $(gra5).fadeIn(1500);
+                            }
+                            if(ibadai.style.display == "none"){
+                                ibadai.style.display = "block";
+                                ibadai.style.display = "flex";
+                            }
+                            break;
+                        default:
+                            if(gra6.style.display == "none"){
+                                $(gra6).fadeIn(1500);
+                            }
+                            if(repeat.style.display == "none"){
+                                repeat.style.display = "block";
+                                repeat.style.display = "flex";
+                            }
+                    }
+            };
+    </script>
+
+    <br><br><br>
+
+    <div class="btnPc-container" id="btnPc">
+            <a href="index.html" class="btn btnPc">入学からやり直す</a>
+    </div>
+    <div class="btnPc-container" id="repeat">
+        <a href="end.html" class="btn btnPc">再度入力する</a>
+    </div>
+    <div class="btnPc-container" id="ibadai">
+        <a href="https://www.ibaraki.ac.jp/department/sci/index.html" class="btn btnPc">茨大HPへ</a>
+    </div>
+    <script>
+        document.getElementById("commentClear").style.display = "block"; // 天の声表示しておく
+        document.getElementById("btnPc").style.display = "none"; // 入学ボタン隠しとく
+        document.getElementById("repeat").style.display = "none"; // 再度入力ボタン隠しとく
+        document.getElementById("ibadai").style.display = "none"; // 茨大ボタン隠しとく
+        function clickOk2(){
+            const commentClear = document.getElementById("commentClear");
+                if(commentClear.style.display == "block"){
+                    commentClear.style.display = "none";
+                }
+        };
+    </script>
+
+    <br>
+
+</div>
+    <footer>
+        <div class="f-container">
+            <div class="f-item fs-item f-footer"></div>
+            <div class="f-item fc-item f-footer">
+                <a href="https://www.ibaraki.ac.jp/department/sci/index.html">
+                    <h1>茨城大学</h1>
+                    <h2>理学部　水戸キャンパス</h2>
+                    <p>〒310-8512　茨城県水戸市文京2-1-1</p>
+                </a>
+            </div>
+            <div class="f-item fs-item f-footer"></div>
+        </div>
+    </footer>
+</body>
+</html>
